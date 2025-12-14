@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: whatsmypasswd-config
+  namespace: whatsmypasswd
+data:
+  DATABASE_URL: "sqlite+aiosqlite:///./data/whatsmypasswd.db"
+  CORS_ORIGINS: '["http://localhost","https://passwd.example.com"]'
+  DEBUG: "false"

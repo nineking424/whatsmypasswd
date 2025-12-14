@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: whatsmypasswd-backend
+  namespace: whatsmypasswd
+spec:
+  selector:
+    app: whatsmypasswd-backend
+  ports:
+    - port: 8000
+      targetPort: 8000
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: whatsmypasswd-frontend
+  namespace: whatsmypasswd
+spec:
+  selector:
+    app: whatsmypasswd-frontend
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP

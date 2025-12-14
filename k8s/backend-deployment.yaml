@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whatsmypasswd-backend
+  namespace: whatsmypasswd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: whatsmypasswd-backend
+  template:
+    metadata:
+      labels:
+        app: whatsmypasswd-backend
+    spec:
+      containers:
+        - name: backend
+          image: whatsmypasswd-backend:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - configMapRef:
+                name: whatsmypasswd-config
+            - secretRef:
+                name: whatsmypasswd-secret
+          volumeMounts:
+            - name: data
+              mountPath: /app/data
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: whatsmypasswd-data
