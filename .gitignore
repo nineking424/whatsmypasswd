@@ -42,3 +42,11 @@ htmlcov/
 tmp/
 temp/
 *.tmp
+
+# Playwright
+.playwright-mcp/
+playwright-report/
+test-results/
+
+# Claude Code
+.claude/
