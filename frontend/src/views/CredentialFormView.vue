@@ -24,7 +24,7 @@ const form = ref({
   category_id: undefined as number | undefined,
   tags: [] as string[],
   description: '',
-  extra_data: {} as Record<string, unknown>,
+  extra_data: {} as Record<string, any>,
 })
 
 const tagInput = ref('')
