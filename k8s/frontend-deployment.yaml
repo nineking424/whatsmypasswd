@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: whatsmypasswd-frontend:latest
-          imagePullPolicy: IfNotPresent
+          image: nineking424/whatsmypassword:frontend
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
           livenessProbe:

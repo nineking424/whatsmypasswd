@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
         - name: backend
-          image: whatsmypasswd-backend:latest
-          imagePullPolicy: IfNotPresent
+          image: nineking424/whatsmypassword:backend
+          imagePullPolicy: Always
           ports:
             - containerPort: 8000
           envFrom:

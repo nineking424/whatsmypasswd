@@ -5,5 +5,5 @@ metadata:
   namespace: whatsmypasswd
 data:
   DATABASE_URL: "sqlite+aiosqlite:///./data/whatsmypasswd.db"
-  CORS_ORIGINS: '["http://localhost","https://passwd.example.com"]'
+  CORS_ORIGINS: '["http://localhost","https://whatsmypasswd.nks.stjeong.com"]'
   DEBUG: "false"
